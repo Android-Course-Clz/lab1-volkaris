@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="background">#1E2732</color>
     <color name="header_buttons">#39444D</color>
+    <color name="actualWhite">#F7F9F9</color>
+    <color name="actualGrey">#8B98A5</color>
 </resources>
