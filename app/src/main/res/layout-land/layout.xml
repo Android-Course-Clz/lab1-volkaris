@@ -8,8 +8,9 @@
     android:background="@color/background"
     tools:context=".MyActivity">
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/headerLayout"
+        android:id="@+id/postLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginVertical="40dp"
@@ -18,44 +19,48 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
+
         <ImageButton
-            android:id="@+id/profilePic"
+            android:id="@+id/likeImage"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginStart="16dp"
             android:background="@android:color/transparent"
-            android:scaleType="centerInside"
+            android:scaleType="centerCrop"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
+
         <ImageButton
-            android:id="@+id/showMoreButton"
+            android:id="@+id/replyButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:background="@color/background"
             android:scaleType="centerInside"
             android:src="@drawable/button"
-            app:layout_constraintTop_toTopOf="@id/profilePic"
-            app:layout_constraintBottom_toBottomOf="@id/profilePic"
-            app:layout_constraintStart_toEndOf="@id/profilePic"
-            app:layout_constraintEnd_toStartOf="@id/messageButton"
+            app:layout_constraintTop_toTopOf="@id/likeImage"
+            app:layout_constraintBottom_toBottomOf="@id/likeImage"
+            app:layout_constraintStart_toEndOf="@id/likeImage"
+            app:layout_constraintEnd_toStartOf="@id/commentButton"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintHorizontal_bias="1.0" />
 
+
         <ImageButton
-            android:id="@+id/messageButton"
+            android:id="@+id/commentButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:background="@color/background"
             android:scaleType="centerInside"
             android:src="@drawable/message_button"
-            app:layout_constraintTop_toTopOf="@id/profilePic"
-            app:layout_constraintBottom_toBottomOf="@id/profilePic"
-            app:layout_constraintStart_toEndOf="@id/showMoreButton"
+            app:layout_constraintTop_toTopOf="@id/likeImage"
+            app:layout_constraintBottom_toBottomOf="@id/likeImage"
+            app:layout_constraintStart_toEndOf="@id/replyButton"
             app:layout_constraintEnd_toStartOf="@id/followButton" />
+
 
         <ImageButton
             android:id="@+id/followButton"
@@ -66,55 +71,64 @@
             android:background="@color/background"
             android:scaleType="centerInside"
             android:src="@drawable/follow_button"
-            app:layout_constraintTop_toTopOf="@id/profilePic"
-            app:layout_constraintBottom_toBottomOf="@id/profilePic"
-            app:layout_constraintStart_toEndOf="@id/messageButton"
+            app:layout_constraintTop_toTopOf="@id/likeImage"
+            app:layout_constraintBottom_toBottomOf="@id/likeImage"
+            app:layout_constraintStart_toEndOf="@id/commentButton"
             app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/infoLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/headerLayout"
+
+        app:layout_constraintTop_toBottomOf="@id/postLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:padding="32dp">
 
-        <TextView
-            android:id="@+id/nameSurname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:text="@string/ilya_oreshin"
-            android:textSize="18sp"
-            android:textColor="@color/actualWhite" />
+            <TextView
+                android:id="@+id/nameSurname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:text="@string/ilya_oreshin"
+                android:textSize="18sp"
+                android:textColor="@color/actualWhite">
+            </TextView>
+
 
         <TextView
             android:id="@+id/nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/nameSurname"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
             android:text="@string/volkaris"
             android:layout_marginTop="15sp"
             android:textSize="15sp"
-            android:textColor="@color/actualGrey" />
+            android:textColor="@color/actualGrey">
+
+        </TextView>
+
 
         <TextView
-            android:id="@+id/bio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/nickname"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
             android:text="@string/trying_to_get_things_done"
             android:layout_marginTop="15sp"
             android:textSize="15sp"
-            android:textColor="@color/actualWhite" />
+            android:textColor="@color/actualWhite">
+
+        </TextView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/followingInfo"
@@ -127,45 +141,46 @@
 
         <TextView
             android:id="@+id/following"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:text="@string/_0_following"
-            android:textColor="@color/actualWhite"
             android:textSize="18sp"
+            android:textColor="@color/actualWhite"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toStartOf="@id/followers"
-            app:layout_constraintHorizontal_weight="1"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintHorizontal_weight="1"/>
+        
+        <TextView
+            android:id="@+id/following"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/_0_following"
+            android:textSize="18sp"
+            android:textColor="@color/actualWhite"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/followers"
+            app:layout_constraintHorizontal_weight="1"/>
 
         <TextView
             android:id="@+id/followers"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/_7_billions_followers"
-            android:textSize="15sp"
+            android:text="7 Billions Followers"
+            android:textSize="18sp"
             android:textColor="@color/actualWhite"
-            android:gravity="center"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@id/following"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_weight="1" />
+            app:layout_constraintHorizontal_weight="1"/>
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/followingInfo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
